@@ -7,11 +7,7 @@
 
 - Executive Summary/Scope
 - In-Depth Phishing Analysis Template Report
-- Brief Phishing Analysis Template Report
-- Risk Assessment
-- Dealing with Compromise
 - Sign Off Process
-- Options for Escalation
 
 
 ### Scope:
@@ -22,7 +18,7 @@ With 42% of UK small businesses and 67% of medium business reporting cyber breac
 
 With this risk in mind, and to help enhance SME cyber security defence, these templates provide both a brief and in-depth phishing analysis playbook for internal investigations/reports, depending on internal  IT skills and comfort using investigation tools. I have ensured this template remains vendor neutral (does not rely on specific operating systems or software) and can be conducted by any member of an IT team or someone comfortable using IT systems. 
 
-The purpose of these investigations/reports are as follows:
+### The purpose of these investigations/reports are as follows:
 - Assess risk of account/system compromise
 - Identify post-compromise actions such as Isolate compromised accounts and prevent lateral movement/escalation
 - Provide evidence of investigation to stakeholders/external bodies (ICO)
@@ -35,75 +31,64 @@ This report is free to use and please adapt appropriately to your organisations 
 ## Phishing Analysis Template Report:
 
 ### 1. Basic Information
-  Incident ID:
-  
-  Date of Analysis:
-  
-  Analyst Name:
-  
-  Source: 
-  
-  Severity:
+ 
+  | Incident ID:    |  Enter Response: |
+  |-----------------|------------------|
+  |Date of Analysis:|
+  |Analyst Name:    |
+  |Source:          |
+  |Severity:        |
 
-```
-This section covers the basic information required to document the report. The incident number will follow any internal system and can be as simple as ‘001’ or ‘CySec 01’.
-Ensure dates and names are accurate as this may be required as evidence for external stakeholders. The source of the incident can be from internal staff, external service users, endpoint detection & response software, anti-virus, security information and event management software.
-If this is not from a specific security software and the severity is not known, please enter ‘not determined’ as this will be identified through the course of this investigation. 
-```
+
+> This section covers the basic information required to document the report. The incident number will follow any internal system and can be   as simple as ‘001’ or ‘CySec 01’. Ensure dates and names are accurate as this may be required as evidence for external stakeholders.
+
+> The source of the incident can be from internal staff, external service users, endpoint detection & response software, anti-virus, security information and event management software. If this alert is not from specific security software and the severity is not known, please enter ‘not determined’, as this will be identified through the course of this investigation. 
+
 
 ### 2. Email Overview
-  Subject:
-  
-  From (Header):
-  
-  To:
-  
-  Reply-To:
-  
-  Date Sent:
+  | Subject:     |  Enter Response: |
+  |--------------|------------------|
+  |From (Header):|
+  |To:           |
+  |Reply-To:     |
+  |Date Sent:    |
 
-```
-Before we begin investigating the finer details, we need to document the key pieces of information such as who sent the email, what it regards (subject), who received it and the dates this communication occurs as this may differ from the date of this report.
-Having an accurate timeline is an essential part of any cyber security investigation. 
-```
+> Before we begin investigating the finer details, we need to document the key pieces of information such as who sent the email, what it regards (subject), who received it and the dates this communication occurs as this may differ from the date of this report.
+
+> Having an accurate timeline is an essential part of any cyber security investigation. 
 
 ### 3. Social Engineering Techniques
-  Impersonation (brand/person):
-  
-  Urgency (“act now”):
-  
-  Fear / consequence:
-  
-  Incentive (reward / package / invoice):
+  |Impersonation (brand/person):| Response Here|
+  |-----------------------------|--------------|
+  |Urgency (“act now”):         |             
+  |Fear / consequence:          |
+  |Incentive (reward / package / invoice): |
 
-```
-A good early indication that an email was a phishing attempt, can be identified from the style and context within.
-In this section we will assess known social engineering techniques such as impersonating known brands (email content, signatures, email name appearing to indicate a known brand), Urgency (anything asking the users to act immediately or applying pressure to act), fear/consequence (pushes the user to click as they are worried about facing consequences) and incentive (offering a false reward for user click/engagement).
-These are all signs of phishing attacks however it is too early in the investigation to make any verdict, we will use this evidence with information ascertained below to assess likelihood, impact and risk. 
-```
+> A good early indication that an email was a phishing attempt, can be identified from the style and context within.
+
+> In this section we will assess known social engineering techniques such as impersonating known brands (email content, signatures, email name appearing to indicate a known brand), Urgency (anything asking the users to act immediately or applying pressure to act), fear/consequence (pushes the user to click as they are worried about facing consequences) and incentive (offering a false reward for user click/engagement).
+
+> These are all signs of phishing attacks however it is too early in the investigation to make any verdict, we will use this evidence with information ascertained below to assess likelihood, impact and risk. 
 
 ### 4. Header Analysis (IMF)
-  Return-Path:
-  
-  Received Chain (summarise origin IP/domain):
-  
-  SPF Result (Pass / Fail / Softfail):
-  
-  DKIM Result:
-  
-  DMARC Result:
+  |Return-Path:| Response Here |
+  |------------|---------------|
+  |Received Chain (summarise origin IP/domain):|
+  |SPF Result (Pass / Fail / Softfail):|
+  |DKIM Result:|
+  |DMARC Result:|
 
-```
-This section focuses on analysing the email headers (technical metadata) to identify how the email was sent and whether it is legitimate. Attackers can spoof display names and email content, but cannot easily fake the full delivery path or authentication results.
-To begin, open the full email headers (often “view source” or “view original”). This will display multiple fields.
-The Return-Path shows the actual sending address and may differ from the visible “From” address. If this appears unrelated or suspicious, note this.
-The Received Chain shows the route the email took. Read this from bottom to top and identify the original sending server (IP/domain). If this does not align with the claimed sender or appears unusual, this is a red flag.
-Review authentication results:
+> This section focuses on analysing the email headers (technical metadata) to identify how the email was sent and whether it is legitimate. Attackers can spoof display names and email content, but cannot easily fake the full delivery path or authentication results.
+
+> To begin, open the full email headers (often “view source” or “view original”). This will display multiple fields.
+The Return-Path shows the actual sending address and may differ from the visible “From” address. If this appears unrelated or suspicious, note this. The Received Chain shows the route the email took. Read this from bottom to top and identify the original sending server (IP/domain). If this does not align with the claimed sender or appears unusual, this is a red flag.
+
+> Review authentication results:
 SPF: checks if the sender is authorised (fail/softfail = suspicious)
 DKIM: checks email integrity (fail = suspicious)
 DMARC: validates alignment (fail = strong indicator of phishing)
-A “pass” does not guarantee safety, as compromised accounts can still send phishing emails. Use this alongside other findings to assess risk.
-```
+
+> A “pass” does not guarantee safety, as compromised accounts can still send phishing emails. Use this alongside other findings to assess risk.
 
 ### 5. URL Analysis
   Extracted URLs [DEFANGED (CyberChef)]:
@@ -236,7 +221,8 @@ If there is no evidence of compromise, please record any actions that would be h
 
 ### Sign Off: 
 
-
-
-
-
+|               | Investigator/Analyst | Investigation Lead | Risk Owner/Security Lead | Board of directors/CEO/CISO |
+|---------------|----------------------|--------------------|--------------------------|-----------------------------|
+| Name          |
+| Position/Role |
+| Date          |
